@@ -8,8 +8,10 @@ const initialState = {
 }
 
 const loginSlice = createSlice({
-    name:'',
+    name:'login',
     initialState,
 });
+
+//console.log(loginSlice);
 
 export default loginSlice.reducer;

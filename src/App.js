@@ -1,6 +1,8 @@
 import Header from './components/header';
+import Login from './components/loginPage'
+import Home from './pages/home'
 import './App.css';
-//import {Navigate } from 'react-router-dom';
+import {Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
@@ -8,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<Home/>} />
+          <Route path="Login" element={<Login/>} />
         </Route>
       </Routes>
     </div>
