@@ -1,0 +1,88 @@
+{
+  "accounts": [
+    {
+      "id": "dlozim",
+      "password": "12345",
+      "name": "",
+      "surname": "",
+      "email": "",
+      "phone": "",
+      "list": [
+        {
+          "id": "7649169",
+          "task": "Email crew for new film schedule",
+          "priority": "Low",
+          "deadline": "2023-07-21",
+          "status": "Complete"
+        },
+        {
+          "id": "0633869",
+          "task": "Get Mars Report",
+          "priority": "Medium",
+          "deadline": "2023-06-10",
+          "status": "Pending"
+        }
+      ]
+    },
+    {
+      "id": "rtf44rrg",
+      "password": "12345",
+      "name": "Dlozi",
+      "surname": "Mthethwa",
+      "email": "dlozi.mthethwa@gmail.com",
+      "phone": "0763509451",
+      "list": [
+        {
+          "id": "1529371",
+          "task": "Film scifi short film",
+          "priority": "Medium",
+          "deadline": "2023-06-30",
+          "status": "Pending"
+        },
+        {
+          "id": "2106275",
+          "task": "Go to Paris",
+          "priority": "Low",
+          "deadline": "2023-06-30",
+          "status": "Pending"
+        }
+      ]
+    },
+    {
+      "id": "rteerrwqq",
+      "password": "12345",
+      "name": "Sam",
+      "surname": "Jones",
+      "email": "taveejaji@gmail.com",
+      "phone": "0747091741",
+      "list": []
+    },
+    {
+      "id": "ewwedsd",
+      "password": "12345",
+      "name": "Jessica",
+      "surname": "Atreties",
+      "email": "dlozi.mthethwa@gmail.com",
+      "phone": "0763509451",
+      "list": []
+    },
+    {
+      "id": "pl[kqef",
+      "password": "12345",
+      "name": "Dlozi",
+      "surname": "Jones",
+      "email": "dlozi@GreaterThanAIDSAfrica.org",
+      "phone": "0729154542",
+      "list": []
+    },
+    {
+      "id": "efsdva",
+      "password": "fadffafa",
+      "name": "Ntethelelo Lucky",
+      "surname": "Nhlabathi",
+      "email": "dlozi@GreaterThanAIDSAfrica.org",
+      "phone": "0729154542",
+      "list": []
+    }
+  ]
+}
