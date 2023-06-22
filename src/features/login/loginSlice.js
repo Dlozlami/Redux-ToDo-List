@@ -1,7 +1,6 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-
 const initialState = {
   userData: {
     id: "",
@@ -26,7 +25,7 @@ export const validateUser = createAsyncThunk(
 
       // Retrieve the stored password from the response data
       const storedPassword = resp.data.password;
-
+      thunkAPI.dispatch(setValidUsername(true));
       // Compare the password provided by the user with the stored password
       if (password !== storedPassword) {
         // Update the state to indicate an invalid password
@@ -39,8 +38,8 @@ export const validateUser = createAsyncThunk(
       // Make the API request if the password is valid
       return resp.data;
     } catch (error) {
-        thunkAPI.dispatch(setValidUsername(false));
-        return thunkAPI.rejectWithValue('something went wrong');
+      thunkAPI.dispatch(setValidUsername(false));
+      return thunkAPI.rejectWithValue('something went wrong');
     }
   }
 );
@@ -63,25 +62,26 @@ const loginSlice = createSlice({
     },
 
     setValidPwd: (state, { payload }) => {
-        state.validPwd = payload;
-      },
-      
+      state.validPwd = payload;
+    },
+
     setValidUsername: (state, { payload }) => {
-        state.validUsername = payload;
-      },
-},
+      state.validUsername = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(validateUser.fulfilled, (state, action) => {
         console.log(action);
         state.userData = action.payload;
-      })
+      });
   },
 });
 
 export const {
   clearState,
-  setValidPwd, // Add setValidPwd action
+  setValidPwd,
+  setValidUsername, // Include setValidUsername action
 } = loginSlice.actions;
 
 export default loginSlice.reducer;
