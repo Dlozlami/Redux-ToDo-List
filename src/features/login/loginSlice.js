@@ -1,49 +1,87 @@
 import axios from "axios";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
 
 const initialState = {
-    userData:{
+  userData: {
+    id: "",
+    password: "",
+    name: "",
+    surname: "",
+    email: "",
+    phone: "",
+    list: [],
+  },
+  validPwd: true,
+  validUsername: true,
+};
+
+export const validateUser = createAsyncThunk(
+  'login/validateUser',
+  async ([username, password], thunkAPI) => {
+    const url = `http://localhost:4000/accounts/${username}`;
+
+    try {
+      const resp = await axios.get(url);
+
+      // Retrieve the stored password from the response data
+      const storedPassword = resp.data.password;
+
+      // Compare the password provided by the user with the stored password
+      if (password !== storedPassword) {
+        // Update the state to indicate an invalid password
+        thunkAPI.dispatch(setValidPwd(false));
+
+        // Return early or perform additional logic if needed
+        return;
+      }
+
+      // Make the API request if the password is valid
+      return resp.data;
+    } catch (error) {
+        thunkAPI.dispatch(setValidUsername(false));
+        return thunkAPI.rejectWithValue('something went wrong');
+    }
+  }
+);
+
+const loginSlice = createSlice({
+  name: 'login',
+  initialState,
+  reducers: {
+    clearState: (state, { payload }) => {
+      console.log(payload);
+      state.userData = {
         id: "",
         password: "",
         name: "",
         surname: "",
         email: "",
         phone: "",
-        list: []
-      },
-    validPwd:true,
-    validUsername:true,
-
-}
-
-const loginSlice = createSlice({
-    name:'login',
-    initialState,
-    verifyClient:(state,{payload})=>{
-        axios.get("http://localhost:4000/accounts/"+payload.)
-            .then(function (result) {
-            if(result.data.password===){
-                state.validPwd=true;
-                state.userData.id=result.data.id;
-                state.userData.password=result.data.password;
-                state.userData.name=result.data.name;
-                state.userData.surname=result.data.surname;
-                state.userData.email=result.data.email;
-                state.userData.phone=result.data.phone;
-                state.userData.list=result.data.list;
-            }
-            else{
-                state.validPwd=false;
-            }
-        })
-          .catch(function (error) {
-            console.log(error);
-            state.validUsername=false;
-          });
+        list: [],
+      };
     },
+
+    setValidPwd: (state, { payload }) => {
+        state.validPwd = payload;
+      },
+      
+    setValidUsername: (state, { payload }) => {
+        state.validUsername = payload;
+      },
+},
+  extraReducers: (builder) => {
+    builder
+      .addCase(validateUser.fulfilled, (state, action) => {
+        console.log(action);
+        state.userData = action.payload;
+      })
+  },
 });
 
-//console.log(loginSlice);
+export const {
+  clearState,
+  setValidPwd, // Add setValidPwd action
+} = loginSlice.actions;
 
-export const {verifyClient} = loginSlice.actions;
 export default loginSlice.reducer;
