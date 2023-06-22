@@ -83,6 +83,33 @@
       "email": "dlozi@GreaterThanAIDSAfrica.org",
       "phone": "0729154542",
       "list": []
+    },
+    {
+      "id": "bob",
+      "password": "12345",
+      "name": "Ntethelelo Lucky Nhlabathi",
+      "surname": "Jone",
+      "email": "hkh@ggh.bh",
+      "phone": "0763509451",
+      "list": []
+    },
+    {
+      "id": "Jenny",
+      "password": "12345",
+      "name": "Ntethelelo Lucky Nhlabathi",
+      "surname": "Mthethwa",
+      "email": "hkh@ggh.bh",
+      "phone": "0763509451",
+      "list": []
+    },
+    {
+      "id": "Ben874",
+      "password": "12345",
+      "name": "Benny",
+      "surname": "Tapeesh",
+      "email": "ben@axz.com",
+      "phone": "8174523366",
+      "list": []
     }
   ]
 }

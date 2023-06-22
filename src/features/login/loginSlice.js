@@ -22,7 +22,7 @@ export const validateUser = createAsyncThunk(
 
     try {
       const resp = await axios.get(url);
-
+      console.log("action");
       // Retrieve the stored password from the response data
       const storedPassword = resp.data.password;
       thunkAPI.dispatch(setValidUsername(true));
@@ -30,11 +30,13 @@ export const validateUser = createAsyncThunk(
       if (password !== storedPassword) {
         // Update the state to indicate an invalid password
         thunkAPI.dispatch(setValidPwd(false));
-
+        
         // Return early or perform additional logic if needed
         return;
       }
-
+      thunkAPI.dispatch(setValidPwd(true));
+      
+      //thunkAPI.dispatch(setIsLoggedIn(true));
       // Make the API request if the password is valid
       return resp.data;
     } catch (error) {
@@ -68,12 +70,14 @@ const loginSlice = createSlice({
     setValidUsername: (state, { payload }) => {
       state.validUsername = payload;
     },
+
   },
   extraReducers: (builder) => {
     builder
       .addCase(validateUser.fulfilled, (state, action) => {
         console.log(action);
         state.userData = action.payload;
+
       });
   },
 });
@@ -81,7 +85,7 @@ const loginSlice = createSlice({
 export const {
   clearState,
   setValidPwd,
-  setValidUsername, // Include setValidUsername action
+  setValidUsername, // Include setValidUsername action to avoid 
 } = loginSlice.actions;
 
 export default loginSlice.reducer;

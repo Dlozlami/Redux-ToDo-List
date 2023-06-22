@@ -3,7 +3,7 @@ import Header from './components/header';
 import Login from './components/loginPage';
 //import MyList from './components/myListPage';
 import NoPage from './components/noPage';
-//import Register from './components/register';
+import Register from './components/registerPage';
 
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
@@ -20,13 +20,14 @@ function App() {
         <Route path="/" element={<Header />}>
           <Route index element={<Home />} />
           <Route path="Login" element={<Login />}/>
+          <Route path="Register" element={<Register />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </div>
   );
 }
-/*<Route path="Register" element={<Register />} />
+/*
           <Route path="ToDoList" element={
             userData?
             <MyList  />
