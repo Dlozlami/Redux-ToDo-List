@@ -16,7 +16,7 @@ export const updateList = createAsyncThunk(
     const url = 'http://localhost:4000/accounts/'+userData.id;
     console.log("newList");
     try {
-      await axios.patch(url, newList);
+      await axios.patch(url, { list: newList });
       thunkAPI.dispatch(setTaskUpdatedTemporary(true));
       setTimeout(() => {
         thunkAPI.dispatch(setTaskUpdatedTemporary(false));
@@ -35,7 +35,7 @@ export const addToList = createAsyncThunk(
     const url = 'http://localhost:4000/accounts/'+userData.id;
     console.log(newList);
     try {
-      await axios.patch(url, newList);
+      await axios.patch(url, { list: newList });
       thunkAPI.dispatch(setTaskAddedTemporary(true));
       setTimeout(() => {
         thunkAPI.dispatch(setTaskAddedTemporary(false));
@@ -54,7 +54,7 @@ export const remove = createAsyncThunk(
     const url = 'http://localhost:4000/accounts/'+userData.id;
     console.log(newList);
     try {
-      await axios.patch(url, newList);
+      await axios.patch(url, { list: newList });
       thunkAPI.dispatch(setTaskRemovedTemporary(true));
       setTimeout(() => {
         thunkAPI.dispatch(setTaskRemovedTemporary(false));

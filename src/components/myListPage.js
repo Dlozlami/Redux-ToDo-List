@@ -46,11 +46,12 @@ export default function MyListPage()
         };
     
         const newList = [...inputValues.list, newItem];
+        console.log(newList)
         dispatch(addToList(newList));
     };    
 
     const updatedList = () => {
-        console.log("TEST85")
+        
     const newItem = {
         "id": document.getElementById("idU").value,
         "task": document.getElementById("taskU").value,
@@ -61,7 +62,8 @@ export default function MyListPage()
 
         let list = [...inputValues.list];
         list = list.filter((tasks) => tasks.id !== newItem.id); 
-        dispatch(updateList([...list, newItem]));
+        console.log(newItem)
+        dispatch(updateList(list));
     };
 
     const update =(listItem) => {
