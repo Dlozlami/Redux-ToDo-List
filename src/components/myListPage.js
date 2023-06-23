@@ -138,7 +138,7 @@ export default function MyListPage()
             
             <div className='listBox w3-round-large w3-white w3-card-4'>
                 
-                <div style={isUpdating?{display:'block',backgroundColor:'palegreen'}:{display:'none'}}>
+                <div style={isUpdating?{display:'block',backgroundColor:'plum'}:{display:'none'}}>
                 <h1 style={{fontWeight:'500'}} className="w3-text-blue">Update this task</h1>
                     <label htmlFor="idU">Item serial key</label><br />
                     <input type="text" id="idU" name="idU"/><br /><br />
