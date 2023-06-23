@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
-import { useSelector} from 'react-redux';
 
 
 const initialState = {
@@ -12,7 +11,7 @@ const initialState = {
 export const updateList = createAsyncThunk(
   'myList/updateList',
   async (newList, thunkAPI) => {
-    const {userData} = useSelector((store)=>store.login);
+    const { userData } = thunkAPI.getState().login;
     const url = 'http://localhost:4000/accounts/'+userData.id;
     console.log("newList");
     try {
@@ -31,9 +30,8 @@ export const updateList = createAsyncThunk(
 export const addToList = createAsyncThunk(
   'myList/addToList',
   async (newList, thunkAPI) => {
-    const {userData} = useSelector((store)=>store.login);
+    const { userData } = thunkAPI.getState().login;
     const url = 'http://localhost:4000/accounts/'+userData.id;
-    console.log(newList);
     try {
       await axios.patch(url, { list: newList });
       thunkAPI.dispatch(setTaskAddedTemporary(true));
@@ -50,7 +48,7 @@ export const addToList = createAsyncThunk(
 export const remove = createAsyncThunk(
   'myList/remove',
   async (newList, thunkAPI) => {
-    const {userData} = useSelector((store)=>store.login);
+    const { userData } = thunkAPI.getState().login;
     const url = 'http://localhost:4000/accounts/'+userData.id;
     console.log(newList);
     try {

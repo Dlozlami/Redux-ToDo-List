@@ -48,24 +48,42 @@ export default function MyListPage()
         const newList = [...inputValues.list, newItem];
         console.log(newList)
         dispatch(addToList(newList));
+        setInputValues(prevState => ({ ...prevState, list: newList }));
     };    
 
     const updatedList = () => {
-        
-    const newItem = {
-        "id": document.getElementById("idU").value,
-        "task": document.getElementById("taskU").value,
-        "priority": document.getElementById("priorityU").value,
-        "deadline": document.getElementById("deadlineU").value,
-        "status": document.getElementById("statusU").value
+        const newItem = {
+          "id": document.getElementById("idU").value,
+          "task": document.getElementById("taskU").value,
+          "priority": document.getElementById("priorityU").value,
+          "deadline": document.getElementById("deadlineU").value,
+          "status": document.getElementById("statusU").value
         };
-
-        let list = [...inputValues.list];
-        list = list.filter((tasks) => tasks.id !== newItem.id); 
-        console.log(newItem)
-        dispatch(updateList(list));
-    };
-
+      
+        let newList = [...inputValues.list];
+        newList = newList.map((task) => {
+          if (task.id === newItem.id) {
+            return newItem; // Replace the old item with the updated item
+          } else {
+            return task; // Keep the other items unchanged
+          }
+        });
+      
+        dispatch(updateList(newList)); // Update the list data on the server
+        setInputValues((prevState) => ({ ...prevState, list: newList }));
+        setIsUpdating(false);
+      };
+      
+    
+    const removeItem = (delItem) => {
+        
+                let newlist = [...inputValues.list];
+                newlist = newlist.filter((tasks) => tasks.id !== delItem.id); 
+                dispatch(remove(newlist));
+                setInputValues(prevState => ({ ...prevState, list: newlist }));
+                setIsUpdating(false);
+            };
+        
     const update =(listItem) => {
         setIsUpdating(true);
     
@@ -106,7 +124,7 @@ export default function MyListPage()
                             {setStatus(items.status)}
                             <div style={{width:"10vw",display:'flex',justifyContent:'space-evenly'}}>
                                 <button style={{fontSize:'large',marginRight:'1vw',border:'none'}} onClick={() => update(items)}>&#9998;</button>
-                                <button style={{fontSize:'x-large',marginRight:'1vw',border:'none'}} onClick={() => dispatch(remove(items.id))}>&#128465;</button>
+                                <button style={{fontSize:'x-large',marginRight:'1vw',border:'none'}} onClick={() => removeItem(items)}>&#128465;</button>
                             </div>
                         </div>
                     ))

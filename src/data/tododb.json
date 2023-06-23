@@ -1,6 +1,6 @@
 {
   "accounts": [
-      {
+    {
       "id": "dlozim",
       "password": "12345",
       "name": "",
@@ -16,10 +16,10 @@
           "status": "Complete"
         },
         {
-          "id": "0633869",
-          "task": "Get Mars Report",
-          "priority": "Medium",
-          "deadline": "2023-06-10",
+          "id": "1614197",
+          "task": "DWQQEFEQ",
+          "priority": "Low",
+          "deadline": "2023-07-07",
           "status": "Pending"
         }
       ]
@@ -100,7 +100,22 @@
       "surname": "Mthethwa",
       "email": "hkh@ggh.bh",
       "phone": "0763509451",
-      "list": []
+      "list": [
+        {
+          "id": "8543537",
+          "task": "Go on a Safari",
+          "priority": "High",
+          "deadline": "2023-06-28",
+          "status": "Complete"
+        },
+        {
+          "id": "2087521",
+          "task": "Mohammed Sal Khan",
+          "priority": "High",
+          "deadline": "2023-06-29",
+          "status": "Pending"
+        }
+      ]
     },
     {
       "id": "Ben874",
