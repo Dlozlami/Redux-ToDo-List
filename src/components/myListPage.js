@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect,useState} from 'react';
-import {addToList,updateList,remove,setDeadline,setPriority,setStatus}  from '../features/myList/myListSlice';
+import {addToList,updateList,remove}  from '../features/myList/myListSlice';
 
 
 export default function MyListPage()
@@ -35,7 +35,7 @@ export default function MyListPage()
           getData();
           // eslint-disable-next-line
       }, []);
-
+ 
     const newTask = () => {
         const newItem = {
           "id": generateRandomString(),
@@ -46,11 +46,11 @@ export default function MyListPage()
         };
     
         const newList = [...inputValues.list, newItem];
-        return newList;
+        dispatch(addToList(newList));
     };    
 
     const updatedList = () => {
-        console.log("This far...")
+        console.log("TEST85")
     const newItem = {
         "id": document.getElementById("idU").value,
         "task": document.getElementById("taskU").value,
@@ -61,8 +61,7 @@ export default function MyListPage()
 
         let list = [...inputValues.list];
         list = list.filter((tasks) => tasks.id !== newItem.id); 
-
-        return  [...list, newItem];
+        dispatch(updateList([...list, newItem]));
     };
 
     const update =(listItem) => {
@@ -99,10 +98,10 @@ export default function MyListPage()
                 <div>
                     {inputValues.list.length?inputValues.list.map((items)=>(
                         <div id='taskItems' key={items.id} className='taskItems'>
-                            {dispatch(setDeadline(items.deadline))}
+                            {setDeadline(items.deadline)}
                             <div style={{width:"45vw",paddingLeft:'1vw'}}>{items.task}</div>
-                            {dispatch(setPriority(items.priority))}
-                            {dispatch(setStatus(items.status))}
+                            {setPriority(items.priority)}
+                            {setStatus(items.status)}
                             <div style={{width:"10vw",display:'flex',justifyContent:'space-evenly'}}>
                                 <button style={{fontSize:'large',marginRight:'1vw',border:'none'}} onClick={() => update(items)}>&#9998;</button>
                                 <button style={{fontSize:'x-large',marginRight:'1vw',border:'none'}} onClick={() => dispatch(remove(items.id))}>&#128465;</button>
@@ -139,7 +138,7 @@ export default function MyListPage()
                         <option value='Pending'>Pending</option>
                         <option value='Complete'>Complete</option>
                     </select><br /><br />
-                    <button className="w3-btn w3-blue w3-card-4 w3-round-large" onClick={dispatch(updateList(updatedList()))}>Update</button><br /><br />
+                    <button className="w3-btn w3-blue w3-card-4 w3-round-large" onClick={updatedList}>Update</button><br /><br />
                 </div>
 
                 <div style={!isUpdating?{display:'block'}:{display:'none'}}>
@@ -155,7 +154,7 @@ export default function MyListPage()
                     <br /><br />
                     <label htmlFor="deadline">Deadline</label><br />
                     <input type="date" id="deadline"/><br /><br />   
-                    <button className="w3-btn w3-blue w3-card-4 w3-round-large" onClick={dispatch(addToList(newTask()))}>Add to list</button><br /><br />
+                    <button className="w3-btn w3-blue w3-card-4 w3-round-large" onClick={newTask}>Add to list</button><br /><br />
                 </div>
             </div>
         </div>
@@ -173,3 +172,46 @@ function generateRandomString(){
     
     return randomString;
 }
+
+    function setDeadline(dl)
+      {
+            let deadline = new Date(dl).getTime();
+            let today = new Date().getTime();
+      
+            return(
+                today<deadline?<div style={{width:"20vw",paddingLeft:'1vw'}}>{dl}</div>:<div style={{width:"20vw",paddingLeft:'1vw',backgroundColor:'lightpink',color:'red'}}>Expired</div>
+            );
+      }
+      
+      function setPriority(priority)
+      {
+          if(priority==='Low'){
+              return(
+                  <div className='w3-green' style={{width:"15vw",paddingLeft:'1vw'}}>Low</div>
+              );
+          }
+          if(priority==='Medium'){
+              return(
+                  <div className='w3-orange' style={{width:"15vw",paddingLeft:'1vw'}}>Medium</div>
+              );
+          }
+          if(priority==='High'){
+              return(
+                  <div className='w3-red' style={{width:"15vw",paddingLeft:'1vw'}}>High</div>
+              );
+          }
+      }
+      
+      function setStatus(status)
+      {
+          if(status==='Pending'){
+              return(
+                  <div className='w3-gray' style={{width:"10vw",color:'darkgray',paddingLeft:'1vw'}}>Pending</div>
+              );
+          }
+          if(status==='Complete'){
+              return(
+                  <div className='w3-blue' style={{width:"10vw",paddingLeft:'1vw'}}>Complete</div>
+              );
+          }
+      }

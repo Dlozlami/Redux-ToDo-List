@@ -71,48 +71,6 @@ const myListSlice = createSlice({
     name:'myList',
     initialState,
     reducers:{
-      setDeadline : (state,{payload})=>
-      {
-            let deadline = new Date(payload).getTime();
-            let today = new Date().getTime();
-      
-            return(
-                today<deadline?<div style={{width:"20vw",paddingLeft:'1vw'}}>{payload}</div>:<div style={{width:"20vw",paddingLeft:'1vw',backgroundColor:'lightpink',color:'red'}}>Expired</div>
-            );
-      },
-      
-      setPriority:(state,{payload})=>
-      {
-          if(payload==='Low'){
-              return(
-                  <div className='w3-green' style={{width:"15vw",paddingLeft:'1vw'}}>Low</div>
-              );
-          }
-          if(payload==='Medium'){
-              return(
-                  <div className='w3-orange' style={{width:"15vw",paddingLeft:'1vw'}}>Medium</div>
-              );
-          }
-          if(payload==='High'){
-              return(
-                  <div className='w3-red' style={{width:"15vw",paddingLeft:'1vw'}}>High</div>
-              );
-          }
-      },
-      
-      setStatus:(state,{payload})=>
-      {
-          if(payload==='Pending'){
-              return(
-                  <div className='w3-gray' style={{width:"10vw",color:'darkgray',paddingLeft:'1vw'}}>Pending</div>
-              );
-          }
-          if(payload==='Complete'){
-              return(
-                  <div className='w3-blue' style={{width:"10vw",paddingLeft:'1vw'}}>Complete</div>
-              );
-          }
-      },
       
       setTaskAddedTemporary: (state, { payload }) => {
         state.taskAdded = payload;
@@ -130,5 +88,5 @@ const myListSlice = createSlice({
 
 //console.log(loginSlice);
 
-export const {update,setDeadline,setPriority,setStatus,generateRandomString,setTaskRemovedTemporary,setTaskAddedTemporary,setTaskUpdatedTemporary} = myListSlice.actions;
+export const {setTaskRemovedTemporary,setTaskAddedTemporary,setTaskUpdatedTemporary} = myListSlice.actions;
 export default myListSlice.reducer;
