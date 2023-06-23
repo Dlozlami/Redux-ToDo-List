@@ -11,7 +11,6 @@ export default function LoginPage()
     
     const grabInputs = ()=>
     {
-        console.log('ju');
         return([document.getElementById("id").value,document.getElementById("password").value]);
     }
     

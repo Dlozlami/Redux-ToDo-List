@@ -22,7 +22,6 @@ export const validateUser = createAsyncThunk(
 
     try {
       const resp = await axios.get(url);
-      console.log("action");
       // Retrieve the stored password from the response data
       const storedPassword = resp.data.password;
       thunkAPI.dispatch(setValidUsername(true));
@@ -51,7 +50,6 @@ const loginSlice = createSlice({
   initialState,
   reducers: {
     clearState: (state, { payload }) => {
-      console.log(payload);
       state.userData = {
         id: "",
         password: "",

@@ -1,6 +1,15 @@
 {
   "accounts": [
     {
+      "0": {},
+      "1": {
+        "id": "0633869",
+        "task": "Get Mars Report",
+        "priority": "Medium",
+        "deadline": "2023-06-10",
+        "status": "Pending"
+      },
+      "2": {},
       "id": "dlozim",
       "password": "12345",
       "name": "",

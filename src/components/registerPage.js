@@ -8,6 +8,7 @@ export default function RegisterPage()
     const [isRegisterBtnShowing,setIsRegisterBtnShowing] = useState(false);
     const {userAdded} = useSelector((store)=>store.register);
     const dispatch = useDispatch();
+    
     const checkUsername = (event)=>{
       axios.get("http://localhost:4000/accounts/"+event.target.value)
         .then(function (response) {
@@ -52,8 +53,6 @@ export default function RegisterPage()
         }
       });
     }
-    
-    
 
     return (
         <div className="regContainer">
