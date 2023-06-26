@@ -1,27 +1,16 @@
-// Importing express
+// Importing express and cors
 const express = require('express');
-const fs = require('fs');
+const cors = require('cors');
+
 
 const app = express();
-let jsonData;
-
-// Read JSON file
-fs.readFile('expressDB.json', 'utf8', (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-
-  jsonData = JSON.parse(data);
-  console.log(jsonData);
-});
 
 
+// Enable CORS for all routes
+app.use(cors());
 
-// Handling GET /accounts Request
-app.get('/accounts', function (req, res) {
-  res.json(jsonData);
-});
+
+let walkWays = require('./expressRoutes.js');
 
 // Listening to server at port 5000
 app.listen(5000, function () {
