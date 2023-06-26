@@ -19,7 +19,6 @@ export const validateUser = createAsyncThunk(
   'login/validateUser',
   async ([username, password], thunkAPI) => {
     const url = `http://localhost:4000/accounts/${username}`;
-
     try {
       const resp = await axios.get(url);
       // Retrieve the stored password from the response data
@@ -38,7 +37,9 @@ export const validateUser = createAsyncThunk(
       //thunkAPI.dispatch(setIsLoggedIn(true));
       // Make the API request if the password is valid
       return resp.data;
-    } catch (error) {
+    } 
+    
+    catch (error) {
       thunkAPI.dispatch(setValidUsername(false));
       return thunkAPI.rejectWithValue('something went wrong');
     }

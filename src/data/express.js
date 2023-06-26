@@ -2,35 +2,28 @@
 const express = require('express');
 const fs = require('fs');
 
-// Creating instance of express
 const app = express();
+let jsonData;
 
-// Handling GET / Request
-app.get('/', function (req, res) {
-    // Read the JSON file
-    fs.readFile('src\\\data\\tododb.json', 'utf8', (err, data) => {
-      if (err) {
-        console.error(err);
-        res.status(500).send(err);
-        return;
-      }
-  
-      // Parse the JSON data
-      let jsonData;
-      try {
-        jsonData = JSON.parse(data);
-      } catch (err) {
-        console.error(err);
-        res.status(500).send('Error parsing JSON data');
-        return;
-      }
-  
-      // Send the JSON data as the response
-      res.json(jsonData);
-    });
-  });
+// Read JSON file
+fs.readFile('expressDB.json', 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+
+  jsonData = JSON.parse(data);
+  console.log(jsonData);
+});
+
+
+
+// Handling GET /accounts Request
+app.get('/accounts', function (req, res) {
+  res.json(jsonData);
+});
 
 // Listening to server at port 5000
 app.listen(5000, function () {
-	console.log("server started");
+	console.log("server started...\nClick the url to gain access: http://localhost:5000/");
 })

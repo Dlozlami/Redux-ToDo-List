@@ -1,0 +1,130 @@
+{
+    "accounts": [
+      {
+        "id": "dlozim",
+        "password": "12345",
+        "name": "",
+        "surname": "",
+        "email": "",
+        "phone": "",
+        "list": [
+          {
+            "id": "7649169",
+            "task": "Email crew for new film schedule",
+            "priority": "Low",
+            "deadline": "2023-05-05",
+            "status": "Complete"
+          },
+          {
+            "id": "1614197",
+            "task": "DWQQEFEQ",
+            "priority": "Low",
+            "deadline": "2023-06-29",
+            "status": "Pending"
+          }
+        ]
+      },
+      {
+        "id": "rtf44rrg",
+        "password": "12345",
+        "name": "Dlozi",
+        "surname": "Mthethwa",
+        "email": "dlozi.mthethwa@gmail.com",
+        "phone": "0763509451",
+        "list": [
+          {
+            "id": "1529371",
+            "task": "Film scifi short film",
+            "priority": "Medium",
+            "deadline": "2023-06-30",
+            "status": "Pending"
+          },
+          {
+            "id": "2106275",
+            "task": "Go to Paris",
+            "priority": "Low",
+            "deadline": "2023-06-30",
+            "status": "Pending"
+          }
+        ]
+      },
+      {
+        "id": "rteerrwqq",
+        "password": "12345",
+        "name": "Sam",
+        "surname": "Jones",
+        "email": "taveejaji@gmail.com",
+        "phone": "0747091741",
+        "list": []
+      },
+      {
+        "id": "ewwedsd",
+        "password": "12345",
+        "name": "Jessica",
+        "surname": "Atreties",
+        "email": "dlozi.mthethwa@gmail.com",
+        "phone": "0763509451",
+        "list": []
+      },
+      {
+        "id": "pl[kqef",
+        "password": "12345",
+        "name": "Dlozi",
+        "surname": "Jones",
+        "email": "dlozi@GreaterThanAIDSAfrica.org",
+        "phone": "0729154542",
+        "list": []
+      },
+      {
+        "id": "efsdva",
+        "password": "fadffafa",
+        "name": "Ntethelelo Lucky",
+        "surname": "Nhlabathi",
+        "email": "dlozi@GreaterThanAIDSAfrica.org",
+        "phone": "0729154542",
+        "list": []
+      },
+      {
+        "id": "bob",
+        "password": "12345",
+        "name": "Ntethelelo Lucky Nhlabathi",
+        "surname": "Jone",
+        "email": "hkh@ggh.bh",
+        "phone": "0763509451",
+        "list": []
+      },
+      {
+        "id": "Jenny",
+        "password": "12345",
+        "name": "Ntethelelo Lucky Nhlabathi",
+        "surname": "Mthethwa",
+        "email": "hkh@ggh.bh",
+        "phone": "0763509451",
+        "list": [
+          {
+            "id": "8543537",
+            "task": "Go on a Safari",
+            "priority": "High",
+            "deadline": "2023-06-28",
+            "status": "Complete"
+          },
+          {
+            "id": "2087521",
+            "task": "Mohammed Sal Khan",
+            "priority": "High",
+            "deadline": "2023-06-29",
+            "status": "Pending"
+          }
+        ]
+      },
+      {
+        "id": "Ben874",
+        "password": "12345",
+        "name": "Benny",
+        "surname": "Tapeesh",
+        "email": "ben@axz.com",
+        "phone": "8174523366",
+        "list": []
+      }
+    ]
+  }
