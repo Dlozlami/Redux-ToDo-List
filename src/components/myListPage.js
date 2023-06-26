@@ -21,7 +21,7 @@ export default function MyListPage()
       });
   
       const getData = () => {
-            axios.get("http://localhost:4000/accounts/" + userData.id)
+            axios.get("http://localhost:5000/accounts/" + userData.id)
               .then(function (result) {
                   console.log(inputValues.list);
                 setInputValues(result.data);

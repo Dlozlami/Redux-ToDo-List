@@ -8,7 +8,7 @@ const initialState = {
 export const addUser = createAsyncThunk(
   'register/addUser',
   async (newUser, thunkAPI) => {
-    const url = 'http://localhost:4000/accounts/';
+    const url = 'http://localhost:5000/accounts/';
     console.log(newUser);
     try {
       await axios.post(url, newUser);
