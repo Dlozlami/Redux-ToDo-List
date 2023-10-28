@@ -3,7 +3,7 @@
 
 <strong>To Do List</strong>
 
-Sign Up and Login to keep track of your todo lits.
+Sign Up and Login to keep track of your todo lists.
 
 
 ## Run Locally
