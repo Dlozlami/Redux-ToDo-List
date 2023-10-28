@@ -125,6 +125,30 @@
       "email": "ben@axz.com",
       "phone": "8174523366",
       "list": []
+    },
+    {
+      "id": "AXZ5606190",
+      "password": "123456",
+      "name": "Sam R Kumar",
+      "surname": "Kumar",
+      "email": "kumar.a@axz.com",
+      "phone": "0839635454",
+      "list": [
+        {
+          "id": "5585690",
+          "task": "fgfdd",
+          "priority": "Medium",
+          "deadline": "2023-10-19",
+          "status": "Complete"
+        },
+        {
+          "id": "6792527",
+          "task": "fdfgf",
+          "priority": "Low",
+          "deadline": "2023-10-29",
+          "status": "Pending"
+        }
+      ]
     }
   ]
 }

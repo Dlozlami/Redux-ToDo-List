@@ -1,10 +1,10 @@
+import './App.css';
 import Home from './components/home';
 import Header from './components/header';
 import Login from './components/loginPage';
 import MyList from './components/myListPage';
 import NoPage from './components/noPage';
 import Register from './components/registerPage';
-import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
