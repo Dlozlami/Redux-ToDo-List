@@ -11,13 +11,13 @@ Sign Up and Login to keep track of your todo lits.
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone [https://link-to-project](https://github.com/Dlozlami/Redux-ToDo-List.git)
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd Redux-ToDo-List
 ```
 
 Install dependencies
