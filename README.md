@@ -11,7 +11,7 @@ Sign Up and Login to keep track of your todo lists.
 Clone the project
 
 ```bash
-  git clone [https://link-to-project](https://github.com/Dlozlami/Redux-ToDo-List.git)
+  git clone https://github.com/Dlozlami/Redux-ToDo-List.git
 ```
 
 Go to the project directory
