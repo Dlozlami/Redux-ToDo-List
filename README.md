@@ -1,7 +1,7 @@
 <img src="https://socialify.git.ci/Dlozlami/Redux-ToDo-List/image?language=1&owner=1&name=1&stargazers=1&theme=Light" alt="Redux-ToDo-List" width="640" height="320" />
 
 
-To Do List
+<strong>To Do List</strong>
 
 Sign Up and Login to keep track of your todo lits.
 
